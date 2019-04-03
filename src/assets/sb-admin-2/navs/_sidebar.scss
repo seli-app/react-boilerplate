@@ -11,9 +11,14 @@
       text-align: center;
       padding: 0.75rem 1rem;
       width: $sidebar-collapsed-width;
+      background: none;
+      border: none;
       span {
         font-size: 0.65rem;
         display: block;
+      }
+      &:focus {
+        outline: none;
       }
     }
     &.active {

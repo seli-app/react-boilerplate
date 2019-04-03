@@ -1,11 +1,12 @@
 import React from 'react';
 import './Colors.scss';
-import PageHeader from "../../components/PageHeader/PageHeader";
-import {withRouter} from "react-router-dom";
-import {connect} from "react-redux";
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import actions from "../../store/actions";
-import ReactTable from "react-table";
+import ReactTable from 'react-table';
+import PropTypes from 'prop-types';
+import actions from '../../store/actions';
+import PageHeader from '../../components/PageHeader/PageHeader';
 
 const colors = (props) => {
   const { t } = useTranslation();
@@ -27,6 +28,7 @@ const colors = (props) => {
       accessor: 'pantone_value'
     }
   ];
+  // eslint-disable-next-line react/destructuring-assignment
   const data = props.colors;
 
   return (
@@ -43,18 +45,31 @@ const colors = (props) => {
         ofText={t('of')}
         rowsText={t('rows')}
         pageJumpText={t('jump to page')}
-        rowsSelectorText={t('rows per page')} />
+        rowsSelectorText={t('rows per page')}
+      />
     </div>
   );
 };
 
-const mapStateToProps = (state) => (
+colors.propTypes = {
+  colors: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      year: PropTypes.number.isRequired,
+      color: PropTypes.string.isRequired,
+      pantone_value: PropTypes.string.isRequired
+    })
+  ).isRequired
+};
+
+const mapStateToProps = state => (
   {
     colors: state.reqres.colors
   }
 );
 
-const mapDispatchToProps = (dispatch) => (
+const mapDispatchToProps = dispatch => (
   {
     getColors: dispatch({ type: actions.reqres.GET_COLORS_REQUEST })
   }

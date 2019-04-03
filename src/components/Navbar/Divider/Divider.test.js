@@ -1,9 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Divider from './Divider';
+import { shallow } from 'enzyme';
+import { Divider } from './Divider';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Divider />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('Divider', () => {
+  it('matches snapshot', () => {
+    const component = shallow(<Divider />);
+    expect(component).toMatchSnapshot();
+  });
 });

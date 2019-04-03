@@ -1,9 +1,10 @@
 import React from 'react';
-import {Trans} from "react-i18next";
+import { Trans } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Icon from '../Icon/Icon';
-import {Link} from "react-router-dom";
 
-const page_header = (props) => {
+const pageHeader = (props) => {
   const { title, button } = props;
 
   return (
@@ -11,11 +12,25 @@ const page_header = (props) => {
       <h1 className="h3 mb-0 text-gray-800"><Trans>{ title }</Trans></h1>
       { button ? (
         <Link to={button.href} className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-          <Icon icon={button.icon} options="fa-sm text-white-50" /> <Trans>{ button.name }</Trans>
+          <Icon icon={button.icon} options="fa-sm text-white-50" />
+          {' '}
+          <Trans>{ button.name }</Trans>
         </Link>
       ) : null }
     </div>
   );
 };
 
-export default page_header;
+pageHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+  button: PropTypes.instanceOf({
+    href: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  })
+};
+
+pageHeader.defaultProps = {
+  button: null
+};
+
+export default pageHeader;

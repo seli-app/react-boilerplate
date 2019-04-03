@@ -1,9 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import ScrollToTop from './ScrollToTop';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<ScrollToTop />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('ScrollToTop', () => {
+  it('matches snapshot', () => {
+    const component = shallow(<ScrollToTop />);
+    expect(component).toMatchSnapshot();
+  });
 });

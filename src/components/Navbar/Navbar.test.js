@@ -1,9 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Navbar from './Navbar';
+import { shallow } from 'enzyme';
+import { Navbar } from './Navbar';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Navbar />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('Navbar', () => {
+  it('matches snapshot', () => {
+    const component = shallow(<Navbar />);
+    expect(component).toMatchSnapshot();
+  });
 });

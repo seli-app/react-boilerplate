@@ -1,4 +1,4 @@
-export const EXPAND_NAVBAR = 'EXPAND_NAVBAR';
+export const expandNavbar = 'expandNavbar';
 export const COLLAPSE_NAVBAR = 'COLLAPSE_NAVBAR';
 
 export const EXPAND_USER_DROPDOWN = 'EXPAND_USER_DROPDOWN';

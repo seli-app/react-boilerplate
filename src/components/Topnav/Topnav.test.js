@@ -1,9 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Topnav from './Topnav';
+import { shallow } from 'enzyme';
+import { Topnav } from './Topnav';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Topnav />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('Topnav', () => {
+  it('matches snapshot', () => {
+    const component = shallow(<Topnav />);
+    expect(component).toMatchSnapshot();
+  });
 });

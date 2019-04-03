@@ -1,9 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Brand from './Brand';
+import { shallow } from 'enzyme';
+import { Brand } from './Brand';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Brand />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('Brand', () => {
+  it('matches snapshot', () => {
+    const component = shallow(<Brand />);
+    expect(component).toMatchSnapshot();
+  });
 });

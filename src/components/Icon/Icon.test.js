@@ -1,9 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Icon from './Icon';
+import { shallow } from 'enzyme';
+import { Icon } from './Icon';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Icon />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('Icon', () => {
+  it('matches snapshot', () => {
+    const component = shallow(<Icon />);
+    expect(component).toMatchSnapshot();
+  });
 });
