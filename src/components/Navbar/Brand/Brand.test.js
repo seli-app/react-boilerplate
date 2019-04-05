@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Brand } from './Brand';
+import Brand from './Brand';
 
 describe('Brand', () => {
   it('matches snapshot', () => {

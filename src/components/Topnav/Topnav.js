@@ -1,4 +1,5 @@
 import React from 'react';
+import './Topnav.scss';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Trans } from 'react-i18next';
@@ -6,7 +7,7 @@ import PropTypes from 'prop-types';
 import Icon from '../Icon/Icon';
 import actions from '../../store/actions';
 
-const topnav = (props) => {
+export const Topnav = (props) => {
   const {
     navbarExpanded, expandNavbar, collapseNavbar, userDropExpanded, expandUserDrop,
     collapseUserDrop, username, avatar, links
@@ -66,7 +67,7 @@ const topnav = (props) => {
   );
 };
 
-topnav.propTypes = {
+Topnav.propTypes = {
   navbarExpanded: PropTypes.bool.isRequired,
   expandNavbar: PropTypes.func.isRequired,
   collapseNavbar: PropTypes.func.isRequired,
@@ -89,7 +90,7 @@ topnav.propTypes = {
   )
 };
 
-topnav.defaultProps = {
+Topnav.defaultProps = {
   links: []
 };
 
@@ -119,4 +120,4 @@ const mapDispatchToProps = dispatch => (
   }
 );
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(topnav));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Topnav));

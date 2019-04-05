@@ -4,7 +4,7 @@ import { Navbar } from './Navbar';
 
 describe('Navbar', () => {
   it('matches snapshot', () => {
-    const component = shallow(<Navbar />);
+    const component = shallow(<Navbar sections={[]} />);
     expect(component).toMatchSnapshot();
   });
 });

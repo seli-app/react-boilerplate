@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Divider } from './Divider';
+import Divider from './Divider';
 
 describe('Divider', () => {
   it('matches snapshot', () => {

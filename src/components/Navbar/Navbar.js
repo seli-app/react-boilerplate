@@ -9,7 +9,7 @@ import Divider from './Divider/Divider';
 import Item from './Item/Item';
 import actions from '../../store/actions';
 
-const navbar = (props) => {
+export const Navbar = (props) => {
   const {
     sections, expanded, expand, collapse
   } = props;
@@ -58,7 +58,7 @@ const navbar = (props) => {
   );
 };
 
-navbar.propTypes = {
+Navbar.propTypes = {
   sections: PropTypes.arrayOf(
     PropTypes.shape({
       heading: PropTypes.string,
@@ -97,4 +97,4 @@ const mapDispatchToProps = dispatch => (
   }
 );
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(navbar));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));

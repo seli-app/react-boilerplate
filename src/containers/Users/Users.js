@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import actions from '../../store/actions';
 import PageHeader from '../../components/PageHeader/PageHeader';
 
-export const Users = (props) => {
+export const users = (props) => {
   const { t } = useTranslation();
   const columns = [
     {
@@ -28,8 +28,7 @@ export const Users = (props) => {
       accessor: 'avatar'
     }
   ];
-  // eslint-disable-next-line react/destructuring-assignment
-  const data = props.users;
+  const { data } = props;
 
   return (
     <div className="container-fluid">
@@ -51,30 +50,26 @@ export const Users = (props) => {
   );
 };
 
-Users.propTypes = {
-  users: PropTypes.arrayOf(PropTypes.shape({
+users.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     first_name: PropTypes.string,
     last_name: PropTypes.string,
     avatar: PropTypes.string
-  }))
-};
-
-Users.defaultProps = {
-  users: []
+  })).isRequired
 };
 
 const mapStateToProps = state => ({
-  users: state.reqres.users
+  data: state.reqres.users
 });
 
 const mapDispatchToProps = dispatch => ({
-  getUsers: dispatch({ type: actions.reqres.GET_USERS_REQUEST })
+  getData: dispatch({ type: actions.reqres.GET_USERS_REQUEST })
 });
 
 export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(Users)
+  )(users)
 );

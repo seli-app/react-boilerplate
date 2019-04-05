@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import actions from '../../store/actions';
 import PageHeader from '../../components/PageHeader/PageHeader';
 
-const colors = (props) => {
+export const colors = (props) => {
   const { t } = useTranslation();
   const columns = [
     {
@@ -28,8 +28,7 @@ const colors = (props) => {
       accessor: 'pantone_value'
     }
   ];
-  // eslint-disable-next-line react/destructuring-assignment
-  const data = props.colors;
+  const { data } = props;
 
   return (
     <div className="container-fluid">
@@ -52,7 +51,7 @@ const colors = (props) => {
 };
 
 colors.propTypes = {
-  colors: PropTypes.arrayOf(
+  data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
@@ -65,13 +64,13 @@ colors.propTypes = {
 
 const mapStateToProps = state => (
   {
-    colors: state.reqres.colors
+    data: state.reqres.colors
   }
 );
 
 const mapDispatchToProps = dispatch => (
   {
-    getColors: dispatch({ type: actions.reqres.GET_COLORS_REQUEST })
+    getData: dispatch({ type: actions.reqres.GET_COLORS_REQUEST })
   }
 );
 
